@@ -10,6 +10,7 @@ import mx.itson.frankie.enumeradores.Tipo;
 import mx.itson.tuto.entidades.Herramienta;
 import mx.itson.tuto.entidades.Paso;
 import mx.itson.tuto.entidades.Tutorial;
+import mx.itson.tuto.entidades.Usuario;
 
 /**
  * Se asignan los valores a cada uno de las variables y listas y se imprimen en consola
@@ -88,7 +89,7 @@ public class Main {
        Paso pasos10 = new Paso();
        pasos10.setOrden(10);
        pasos10.setDescripcion("Instalar el sistema operativo de su preferencia, Conecta la unidad flash USB que contiene el sistema operativo, además de un monitor, mouse y teclado, y enciende la PC.\n" +
-"\n" +
+
 "La primera pantalla que veas te dirá que oprimas una tecla para ingresar a la configuración del sistema o el BIOS. Oprime la tecla para abrir el BIOS. (Si la pantalla titila muy rápidamente como para ver la clave, consulta el manual del usuario de la placa base.).  explora el BIOS hasta que encuentres la página de Arranque (podría llamarse \"Orden de arranque\" o \"Prioridad de arranque\"). Cambia el orden de arranque para que tu unidad flash USB esté en primer lugar" +
 " ");
        
@@ -110,21 +111,27 @@ public class Main {
        tutorial.setPasos(pasos);
        
         tutorial.setUso(Tipo.GAMING);
+        
+       Usuario usuario = new Usuario();
+       usuario.setNombre("Angel Arian");
+       usuario.setEmail("arian.030502@gmail.com");
+       usuario.setPassword("Frankie123");
        
          System.out.println("--Tutorial para armar una computadora--");
-         System.out.println(tutorial.getUso());
+         System.out.println("Tipo de ordenador: "+tutorial.getUso());
          System.out.println("Descripción del tutorial:");
          System.out.println(tutorial.getDescripción());
          System.out.println("Herramientas que utilizarás:");
           
-         for(Herramienta elem : herramientas){
-        
-    }
-         System.out.println(herramientas);
-         
-         for(int i = 0; i < herramientas.size(); i++) {   
-    System.out.print(herramientas.get(i));
-} 
-          
-     }
-}
+         for(Herramienta h : tutorial.getHerramientas(0)){
+           System.out.println(h.getNombre());
+       }
+          for(Paso p : tutorial.getPasos()){
+           System.out.println(p.getOrden() + "-." + p.getDescripcion());
+           
+              
+       }
+          System.out.println("Tutorial elaborado por: " + usuario.getNombre());
+          System.out.println("Información de contacto: "+ usuario.getEmail() );
+     }}
+
